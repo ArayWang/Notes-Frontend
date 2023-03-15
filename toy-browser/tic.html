@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <style>
+            .ceil {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-color: limegreen;
+                border: 1px solid black;
+                margin: 2px;
+                vertical-align: middle;
+            }
+        </style>
+        <div id="board"></div>
+        <script>
+            let pattern = [
+                [0, 1, 0],
+                [0, 0, 2],
+                [0, 0, 0]
+            ]
+        
+            function show() {
+                let board = document.querySelector('#board');
+
+                for(let i = 0; i < pattern.length; i++) {
+                    for(let j = 0; j < pattern[0].length; j++) {
+                        let ceil = document.createElement('div'),
+                            text = '';
+                        ceil.classList.add('ceil');
+                        if(pattern[i][j] === 1) text = '&#11093;';
+                        else if(pattern[i][j] === 2) text = '&#10060;';
+                        ceil.innerHTML = text;
+                        board.appendChild(ceil);
+                    }
+                    board.appendChild(document.createElement('br'));
+                }
+                     
+            }
+            show();
+        </script>
+    </body>
+</html>
